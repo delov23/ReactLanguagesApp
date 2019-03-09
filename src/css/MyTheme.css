@@ -41,13 +41,17 @@
     margin-bottom: 10px;
 }
 
-body.landingPage {
+.landingPage {
     background: #cccccc url("https://cdn.theculturetrip.com/wp-content/uploads/2018/02/language-activism-publish-01.jpg") no-repeat center center fixed;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+    position: absolute;
+    bottom: 0;
+    top: 0;
 }
+
 a.clearTag {
     color: white;
     text-decoration: none ;
