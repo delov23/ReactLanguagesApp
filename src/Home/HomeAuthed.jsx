@@ -3,15 +3,31 @@ import { Link } from 'react-router-dom';
 
 class CoursesHome extends Component {
     state = {
-        courses: [
-        {flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Bulgaria.svg/2000px-Flag_of_Bulgaria.svg.png', language: 'BG A1', _id: '1'}, 
-        {flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Bulgaria.svg/2000px-Flag_of_Bulgaria.svg.png', language: 'BG A2', _id: '2'},
-        {flag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Bulgaria.svg/2000px-Flag_of_Bulgaria.svg.png', language: 'BG B1', _id: '3'}]
+        courses: []
+    }
+
+    componentDidMount() {
+        fetch('http://localhost:9999/course/all', {
+            method: 'GET',
+            headers: {
+                'Authorization': this.props.user.token,
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(raw => raw.json())
+            .then(res => {
+                this.setState({
+                    courses: res.courses
+                })
+            });
     }
     
     render () {
         return (
             <main className="container">
+            {
+                this.state.courses.length > 0
+                ? 
                 <div className="card-deck">
                 {
                     this.state.courses.map((course) =>(
@@ -36,6 +52,9 @@ class CoursesHome extends Component {
                     )
                 }
                 </div>
+                : 
+                <h1>Getting courses...</h1>
+            }
             </main>
         )
     }

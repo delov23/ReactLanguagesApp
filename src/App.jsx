@@ -11,7 +11,10 @@ import CoursesHome from './Home/HomeAuthed';
 
 class App extends Component {
 	state = {
-		
+		user: {
+			token: 'jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlbG92MjNAa2suZ2ciLCJ1c2VySWQiOiI1YzcxNzUzYzUxOTJiYzE3NDA2OWYyZTciLCJpYXQiOjE1NTIyMTk5OTEsImV4cCI6MTU1MjIyMzU5MX0.DmUNNVLtpevE03m13z14QGA0ZHytcysYgEUO9fTO4vg'
+		},
+		isAdmin: false
 	}
 
 	render() {
@@ -24,7 +27,7 @@ class App extends Component {
 							if (!this.state.user) {
 								return <Home />
 							} else {
-								return <CoursesHome isAdmin={!!false} />
+								return <CoursesHome user={this.state.user} isAdmin={this.state.isAdmin} />
 							}
 						}} />
 						<Route exact path="/register" component={Register} />
