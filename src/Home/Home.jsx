@@ -20,14 +20,20 @@ class Home extends Component {
             return Math.floor(Math.random() * Math.floor(max));
         }
 
-        setInterval(() => {
-            const languages = ['Hallo', 'Helo', 'Merhaba', 'Здравей', 'Hello', 'Nnọọ', 'Hola', 'Olà', 'Nǐ hǎo', 'Ciao', 'Здраво'];
-            let randomInt = getRandomInt(11);
+        this.interval = setInterval(() => {
+            const languages = ['Hallo', 'Helo', 'Merhaba', 'Здравей', 'Hello', 'Nnọọ', 'Hola', 'Olà', 'Nǐ hǎo', 'Ciao', 'Здраво', 'Ahoj'];
+            let randomInt = getRandomInt(12);
             let textNode = document.getElementById('greeting');
-            let previous = textNode.innerText;
-            textNode.innerHTML = (languages[randomInt] + '!');
-            if (previous.trim() !== languages[randomInt] + '!') animateCss('.hero-text', 'pulse');
+            if (textNode) {
+                let previous = textNode.innerText;
+                textNode.innerHTML = (languages[randomInt] + '!');
+                if (previous.trim() !== languages[randomInt] + '!') animateCss('.hero-text', 'pulse');
+            }
         }, 3000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
 
     render () {

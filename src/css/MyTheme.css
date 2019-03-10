@@ -10,6 +10,10 @@
     font-size: 18pt;
 }
 
+nav {
+    z-index: 99 !important;
+}
+
 .navbar-brand-text {
     font-family: 'Muli', cursive;
     font-size: 18pt;
