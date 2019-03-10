@@ -1,18 +1,21 @@
 import React, { Component, Fragment } from 'react';
-import CreateLessonForm from './CreateLessonForm/Form';
-import Home from './Home/Home';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import Home from './components/Home/Home';
+import CreateLessonForm from './components/Lesson/CreateForm';
+import Navigation from './components/Navigation/Navigation';
+import Register from './components/User/RegisterForm';
+import Login from './components/User/LoginForm';
+import CoursesHome from './components/Home/HomeAuthed';
+import 'react-toastify/dist/ReactToastify.css';
 import './css/MyTheme.css';
 import './css/bootstrap-grid.css';
 import './css/animate.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navigation from './Navigation/Navigation';
-import Register from './User/RegisterForm';
-import CoursesHome from './Home/HomeAuthed';
 
 class App extends Component {
 	state = {
 		user: {
-			token: 'jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlbG92MjNAa2suZ2ciLCJ1c2VySWQiOiI1YzcxNzUzYzUxOTJiYzE3NDA2OWYyZTciLCJpYXQiOjE1NTIyMTk5OTEsImV4cCI6MTU1MjIyMzU5MX0.DmUNNVLtpevE03m13z14QGA0ZHytcysYgEUO9fTO4vg'
+			token: 'jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlbG92MjNAa2suZ2ciLCJ1c2VySWQiOiI1YzcxNzUzYzUxOTJiYzE3NDA2OWYyZTciLCJpYXQiOjE1NTIyMjgzMzIsImV4cCI6MTU1MjIzMTkzMn0.Qt5i3mvsT6fOdrhJh5_oSjP7tmZGyBB4iCouToejnYU'
 		},
 		isAdmin: false
 	}
@@ -21,6 +24,7 @@ class App extends Component {
 		return (
 			<Router>
 				<Fragment>
+					<ToastContainer />
 					<Navigation />
 					<Switch>
 						<Route exact path="/" render={() => {
@@ -30,6 +34,7 @@ class App extends Component {
 								return <CoursesHome user={this.state.user} isAdmin={this.state.isAdmin} />
 							}
 						}} />
+						<Route exact path="/login" component = {Login} />
 						<Route exact path="/register" component={Register} />
 						<Route exact path="/lesson/create" component={CreateLessonForm} />
 						<Route render={() => (
