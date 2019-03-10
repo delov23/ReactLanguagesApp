@@ -18,13 +18,13 @@ function validateUser(req, res) {
 }
 
 module.exports = {
-  signUp: (req, res) => {
+  signUp: (req, res, next) => {
     if (validateUser(req, res)) {
-      const { email, password, firstName, lastName } = req.body;
+      const { username, password, firstName, lastName } = req.body;
       const salt = encryption.generateSalt();
       const hashedPassword = encryption.generateHashedPassword(salt, password);
       User.create({ 
-        email,
+        username,
         hashedPassword,
         name: firstName + ' ' + lastName,
         salt,
@@ -42,24 +42,24 @@ module.exports = {
     }
   },
   signIn: (req, res, next) => {
-    const { email, password } = req.body;
+    const { username, password } = req.body;
 
-    User.findOne({ email: email })
+    User.findOne({ username: username })
       .then((user) => {
         if (!user) {
-          const error = new Error('A user with this email could not be found');
+          const error = new Error('A user with this username could not be found');
           error.statusCode = 401;
           throw error;
         }
 
         if(!user.authenticate(password)) {
-          const error = new Error('A user with this email could not be found');
+          const error = new Error('Wrong password');
           error.statusCode = 401;
           throw error;
         }
 
         const token = jwt.sign({ 
-          email: user.email,
+          username: user.username,
           userId: user._id.toString()
         }, 
         'somesupersecret',
@@ -69,7 +69,8 @@ module.exports = {
            { 
              message: 'User successfully logged in!', 
              token, 
-             userId: user._id.toString() 
+             userId: user._id.toString(),
+             role: user.role
            });
       })
       .catch(error => {

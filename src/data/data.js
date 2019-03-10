@@ -5,11 +5,18 @@ function getAllCourses (token) {
     return requester(API_URL + '/course/all', 'GET', {}, {
         headers: {
             Authorization: token,
-            'Content-Type': 'application/json'
         }
     });
 }
 
+function loginUser (username, password) {
+    return requester(API_URL + '/auth/signin', 'POST', {
+        username,
+        password
+    });
+}
+
 export default {
-    getAllCourses
+    getAllCourses,
+    loginUser,
 }

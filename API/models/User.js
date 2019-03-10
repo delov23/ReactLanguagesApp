@@ -3,7 +3,7 @@ const encryption = require('../util/encryption');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  email: {
+  username: {
     type: Schema.Types.String,
     required: true
   },

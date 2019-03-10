@@ -10,7 +10,7 @@ class CoursesHome extends Component {
     }
 
     componentDidMount() {
-        api.getAllCourses(this.props.user.token)
+        api.getAllCourses(this.props.token)
             .then(res => {
                 let courses3 = [];
                 let temp = [];
@@ -30,7 +30,12 @@ class CoursesHome extends Component {
                 });
             })
             .catch(err => {
-                handleError(err);
+                console.error(err);
+                handleError('Please, log in to browse the courses.');
+                this.setState({
+                    courses3: [],
+                    isLoading: false
+                });
             });
     }
     
