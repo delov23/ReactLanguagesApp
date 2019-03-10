@@ -42,7 +42,7 @@ class Home extends Component {
                 <div className="hero-text flash">
                     <span id="greeting">Hello!</span><br/>
                     <a className="clearTag" href="/register">
-                        <span style={{fontSize: "20px"}}>
+                        <span style={{fontSize: "30px"}}>
                             Start learning a new language today...
                         </span>
                     </a>
