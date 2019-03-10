@@ -32,4 +32,4 @@ The used framework for the front-end is _React_. These are the highlights from i
     - Anonymous: A greeting message that switches languages
     - User/Admin: A preview of all the courses available
   * Create Lesson Form:
-    - Dynamical addition of words and questions
+    - Dynamic addition of words and questions
