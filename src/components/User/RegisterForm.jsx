@@ -82,32 +82,6 @@ class RegisterForm extends Component {
                     </div>
                     <button type="submit" className="btn btn-lg btn-block btn-outline-primary">Sign in</button>
                 </form>
-                {/* 
-                <form>
-        <div className="form-row">
-            <div className="form-group col-md-6">
-                <label htmlFor="firstName" className="col-form-label-lg">First Name</label>
-                <input type="text" className="form-control col-form-label-lg" id="firstName" name="firstName" placeholder="First Name" required>
-            </div>
-            <div className="form-group col-md-6">
-                <label htmlFor="lastName" className="col-form-label-lg">Last Name</label>
-                <input type="text" className="form-control col-form-label-lg" id="lastName" name="lastName" placeholder="Last Name">
-            </div>
-        </div>
-        
-        <div className="form-row">
-            <div className="form-group col-md-6">
-                <label htmlFor="password" className="col-form-label-lg">Password:</label>
-                <input type="password" className="form-control col-form-label-lg" id="password" name="password" placeholder="Password" required>
-            </div>
-            <div className="form-group col-md-6">
-                <label htmlFor="repeatPassword" className="col-form-label-lg">Repeat Password:</label>
-                <input type="password" className="form-control col-form-label-lg" id="repeatPassword" name="repeatPassword" placeholder="Repeat Password">
-            </div>
-        </div>
-            <button type="submit" className="btn btn-lg btn-block btn-outline-primary">Sign in</button>
-    </form>
-                */}
             </main>
         )
     }
