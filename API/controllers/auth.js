@@ -28,9 +28,22 @@ module.exports = {
         hashedPassword,
         name: firstName + ' ' + lastName,
         salt,
-      }).then((user) => {
-        res.status(201)
-          .json({ message: 'User created!', userId: user._id });
+      })
+      .then((user) => {
+        const token = jwt.sign({ 
+          username: user.username,
+          userId: user._id.toString()
+        }, 
+        'somesupersecret',
+        { expiresIn: '1h' });
+
+         res.status(201).json(
+           { 
+             message: 'User successfully created and logged in!', 
+             token, 
+             userId: user._id.toString(),
+             role: user.role
+           });
       })
       .catch((error) => {
         if (!error.statusCode) {

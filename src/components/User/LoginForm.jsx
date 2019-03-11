@@ -40,13 +40,6 @@ class LoginForm extends Component {
     }
 
     render () {
-        const { isLoggedIn } = this.props;
-
-        if (isLoggedIn) {
-            return (
-                <Redirect to="/" />
-            )
-        }
         return (
             <main className="container">
                 <img src="https://www.slurp-ramen.com/wp-content/uploads/2017/06/hello.png" alt="Hello" width="40%" style={{marginLeft: 'auto', marginRight: 'auto', marginBottom: '20px', display: 'block'}} />

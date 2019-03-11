@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Home from './components/Home/Home';
 import CreateLessonForm from './components/Lesson/CreateForm';
@@ -13,6 +13,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import './css/MyTheme.css';
 import './css/bootstrap-grid.css';
 import './css/animate.css';
+import AuthRoute from './components/Auth/AuthRoute' ;
+import AdminRoute from './components/Auth/AdminRoute' ;
+import AnonymousRoute from './components/Auth/AnonymousRoute';
 
 class App extends Component {
 	constructor(props) {
@@ -26,10 +29,30 @@ class App extends Component {
 				updateUser: this.updateUser
 			}
 		};	
-	}
+	};
 
 	updateUser = (user) => {
 		this.setState({ user });
+	};
+
+	handleLogout = () => {
+		sessionStorage.clear();
+		this.updateUser({
+			token: '',
+			userId: '',
+			isLoggedIn: false,
+			isAdmin: '',
+			updateUser: this.updateUser
+		})
+		return <Redirect to="/" />
+	};
+
+	handleHomePage = () => {
+		if (!this.state.user.userId) {
+			return <Home />
+		} else {
+			return <CoursesHome token={this.state.user.token} userId={this.state.user.userId} isAdmin={this.state.user.isAdmin} />
+		}
 	};
 
 	render() {
@@ -40,17 +63,16 @@ class App extends Component {
 						<ToastContainer />
 						<Navigation />
 						<Switch>
-							<Route exact path="/" render={() => {
-								if (!this.state.user.userId) {
-									return <Home />
-								} else {
-									return <CoursesHome token={this.state.user.token} userId={this.state.user.userId} isAdmin={this.state.user.isAdmin} />
-								}
-							}} />
-							<Route exact path="/login" component = {Login} />
-							<Route exact path="/register" component={Register} />
-							<Route exact path="/about" component={About} />
-							<Route exact path="/lesson/create" component={CreateLessonForm} />
+							<Route exact path="/" render={this.handleHomePage} />
+							
+							<AnonymousRoute exact path="/login" component={Login} />
+							<AnonymousRoute exact path="/register" component={Register} />
+							
+							<AuthRoute exact path="/about" component={About} />
+							<AuthRoute exact path="/logout" render={this.handleLogout} />
+							
+							<AdminRoute exact path="/lesson/create" component={CreateLessonForm} />
+							
 							<Route render={() => (
 								<h1>Not Found</h1>
 							)} />

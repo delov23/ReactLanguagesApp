@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import CourseCard from '../Lesson/CourseCard';
 import handleError from '../../utils/handleError';
 import api from '../../data/data';
@@ -6,7 +7,8 @@ import api from '../../data/data';
 class CoursesHome extends Component {
     state = {
         courses3: [],
-        isLoading: true
+        isLoading: true,
+        logoutUser: false
     }
 
     componentDidMount() {
@@ -34,17 +36,21 @@ class CoursesHome extends Component {
                 handleError('Please, log in to browse the courses.');
                 this.setState({
                     courses3: [],
-                    isLoading: false
+                    isLoading: false,
+                    logoutUser: true
                 });
             });
     }
     
     render () {
         if (this.state.isLoading) {
-            return (<h1>Getting courses...</h1>)
+            return <h1>Getting courses...</h1>
+        } else if (this.state.logoutUser) {
+            return <Redirect to="/logout" />
         }
         return (
             <main className="container">
+                <h1 className="text-center">Browse the available courses: </h1>
                 {
                     this.state.courses3.map((courses) =>(
                         <div className="card-deck">

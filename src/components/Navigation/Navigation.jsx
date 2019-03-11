@@ -23,10 +23,10 @@ const Navigation = (props) => {
                     <div className="ml-auto">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item active">
-                                <Link className="nav-link" to="#">Profile</Link>
+                                <Link className="nav-link" to="/profile">Profile</Link>
                             </li>
                             <li className="nav-item active">
-                                <Link className="nav-link" to="#">Logout</Link>
+                                <Link className="nav-link" to="/logout">Logout</Link>
                             </li>
                         </ul>
                     </div>

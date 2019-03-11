@@ -16,7 +16,17 @@ function loginUser (username, password) {
     });
 }
 
+function registerUser (username, password, firstName, lastName) {
+    return requester(API_URL + '/auth/signup', 'POST', {
+        username,
+        password,
+        firstName,
+        lastName
+    });
+}
+
 export default {
     getAllCourses,
     loginUser,
+    registerUser
 }
