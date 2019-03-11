@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import api from '../../data/data';
 import handleError from '../../utils/handleError'
 import { UserConsumer } from '../contexts/userContext';
