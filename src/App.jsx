@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { ToastContainer } from 'react-toastify';
 import Home from './components/Home/Home';
 import CreateLessonForm from './components/Lesson/CreateForm';
+import CreateCourseForm from './components/Course/CreateForm';
 import Navigation from './components/Navigation/Navigation';
 import Register from './components/User/RegisterForm';
 import Login from './components/User/LoginForm';
@@ -25,7 +26,7 @@ class App extends Component {
 				token: sessionStorage.getItem('token') || '',
 				userId: sessionStorage.getItem('userId') || '',
 				isLoggedIn: !!sessionStorage.getItem('userId') || false,
-				isAdmin: sessionStorage.getItem('isAdmin') || '',
+				isAdmin: sessionStorage.getItem('isAdmin') === "true" || false,
 				updateUser: this.updateUser
 			}
 		};	
@@ -41,7 +42,7 @@ class App extends Component {
 			token: '',
 			userId: '',
 			isLoggedIn: false,
-			isAdmin: '',
+			isAdmin: false,
 			updateUser: this.updateUser
 		})
 		return <Redirect to="/" />
@@ -56,6 +57,8 @@ class App extends Component {
 	};
 
 	render() {
+		console.log(this.state);
+
 		return (
 			<Router>
 				<Fragment>
@@ -72,7 +75,8 @@ class App extends Component {
 							<AuthRoute exact path="/logout" render={this.handleLogout} />
 							
 							<AdminRoute exact path="/lesson/create" component={CreateLessonForm} />
-							
+							<AdminRoute exact path="/course/create" component={CreateCourseForm} />
+
 							<Route render={() => (
 								<h1>Not Found</h1>
 							)} />

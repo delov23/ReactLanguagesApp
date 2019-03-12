@@ -25,8 +25,22 @@ function registerUser (username, password, firstName, lastName) {
     });
 }
 
+function createCourse(language, flag, token) {
+    let options = {
+        headers: {
+            Authorization: token
+        }
+    };
+    let body = {
+        language,
+        flag
+    }
+    return requester(API_URL + '/course/create', 'POST', body, options)
+}
+
 export default {
     getAllCourses,
     loginUser,
-    registerUser
+    registerUser,
+    createCourse
 }

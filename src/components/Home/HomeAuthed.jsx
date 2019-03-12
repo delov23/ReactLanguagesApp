@@ -12,7 +12,7 @@ class CoursesHome extends Component {
     }
 
     componentDidMount() {
-        api.getAllCourses(this.props.token)
+        api.getAllCourses(sessionStorage.getItem('token'))
             .then(res => {
                 let courses3 = [];
                 let temp = [];

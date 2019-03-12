@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import handleSuccess from '../../utils/handleSuccess';
 
 const WordInputs = (props) => {
     return (
@@ -110,7 +111,10 @@ class Form extends Component {
                 'Authorization': sessionStorage.getItem('token')
             }
         }).then(raw => raw.json())
-            .then(console.log)
+            .then((res) => {
+                handleSuccess(res);
+                this.props.history.push('/');
+            })
             .catch(console.error);
     }
 
