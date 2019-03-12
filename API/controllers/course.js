@@ -22,7 +22,7 @@ module.exports = {
       .then((courses) => {
         res
           .status(200)
-          .json({ message: 'Fetched posts successfully.', courses });
+          .json({ message: 'Fetched courses successfully.', courses });
       })
       .catch((error) => {
         if (!error.statusCode) {

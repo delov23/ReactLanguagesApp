@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import handleSuccess from '../../utils/handleSuccess';
+import api from '../../data/data';
+import handleError from '../../utils/handleError';
 
 const WordInputs = (props) => {
     return (
@@ -101,38 +103,30 @@ class Form extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         let { words, questions, title, image, grammar1, grammar2, grammar3, course } = this.state;
-        let body = JSON.stringify({ words: JSON.stringify(words), title, image, grammar: [grammar1, grammar2, grammar3], course, test: JSON.stringify(questions) });
-        console.log(body);
-        fetch('http://localhost:9999/lesson/create', {
-            method: 'POST',
-            body,
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': sessionStorage.getItem('token')
-            }
-        }).then(raw => raw.json())
-            .then((res) => {
-                handleSuccess(res);
-                this.props.history.push('/');
-            })
-            .catch(console.error);
+        let body = { 
+            words: JSON.stringify(words), 
+            title, 
+            image, 
+            grammar: [grammar1, grammar2, grammar3], 
+            course, 
+            test: JSON.stringify(questions)
+        };
+        api.createLesson(body, sessionStorage.getItem('token'))
+        .then((res) => {
+            handleSuccess(res);
+            this.props.history.push('/');
+        })
+        .catch(console.error);
     }
 
     componentDidMount = () => {
-        fetch('http://localhost:9999/course/all', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': sessionStorage.getItem('token')
-            }
-        })
-            .then(raw => raw.json())
+        api.getAllCourses(sessionStorage.getItem('token'))
             .then(res => {
-                console.log(res);
                 this.setState({ courses: res.courses || [] });
             })
-            .catch(() => {
-                this.setState({ courses: [] });
+            .catch((e) => {
+                handleError(e);
+                this.props.history.push('/');
             });
     }
 
@@ -164,7 +158,7 @@ class Form extends Component {
                     <div className="form-row">
                         <label htmlFor="course" className="col-form-label-lg">Course </label>
                         <select className="form-control form-control-lg" name="course" id="course" value={this.props.course}>
-                            <option value="" disabled selected required>Pick a course...</option>
+                            <option value="" disabled defaultValue required>Pick a course...</option>
                             {
                                 this.state.courses.length > 0
                                     ? this.state.courses.map(course => {

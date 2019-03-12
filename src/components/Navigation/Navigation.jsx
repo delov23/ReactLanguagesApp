@@ -51,7 +51,6 @@ const NavigationWithCtx = (props) => {
         <UserConsumer>
             {
                 (user) => {
-                    console.log(user)
                     return <Navigation {...props} isLoggedIn={!!user.isLoggedIn} />
                 }
             }

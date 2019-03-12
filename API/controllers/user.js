@@ -26,17 +26,20 @@ module.exports = {
       })
   },
   addCourse: (req, res, next) => {
-    let courseId = req.params.id;
+    let courseId = req.body.courseId;
 
-    User.findById(req.userId)
+    User.findById(req.body.userId)
       .then(async user => {
         if (!user) {
           const error = new Error('User not found');
           error.statusCode = 401;
           throw error;
         };
-        user.courses.push(courseId);
-        await user.save()
+        let courses = user.courses;
+        let distCourses = courses.filter(c => c.toString() !== courseId);
+        distCourses.push(courseId);       
+        user.courses = distCourses;
+        await user.save();
         res.status(200).json({
           message: 'Course added to user\'s profile',
           user

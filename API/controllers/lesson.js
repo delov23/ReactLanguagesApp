@@ -42,11 +42,14 @@ module.exports = {
   },
   getLessonById: (req, res, next) => {
     let lessonId = req.params.id;
-    Lesson.findById({ lesson: lessonId })
-      .then((lessons) => {
+    Lesson.findById(lessonId)
+      .populate('test')
+      .populate('words')
+      .populate('course')
+      .then((lesson) => {
         res
           .status(200)
-          .json({ message: 'Fetched lessons successfully.', lessons });
+          .json({ message: 'Fetched lesson successfully.', lesson });
       })
       .catch((error) => {
         if (!error.statusCode) {

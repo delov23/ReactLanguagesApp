@@ -17,6 +17,8 @@ import './css/animate.css';
 import AuthRoute from './components/Auth/AuthRoute' ;
 import AdminRoute from './components/Auth/AdminRoute' ;
 import AnonymousRoute from './components/Auth/AnonymousRoute';
+import PreviewLessons from './components/Course/PreviewLessons';
+import PreviewLesson from './components/Lesson/Lesson';
 
 class App extends Component {
 	constructor(props) {
@@ -57,8 +59,6 @@ class App extends Component {
 	};
 
 	render() {
-		console.log(this.state);
-
 		return (
 			<Router>
 				<Fragment>
@@ -71,10 +71,13 @@ class App extends Component {
 							<AnonymousRoute exact path="/login" component={Login} />
 							<AnonymousRoute exact path="/register" component={Register} />
 							
-							<AuthRoute exact path="/about" component={About} />
 							<AuthRoute exact path="/logout" render={this.handleLogout} />
-							
+							<AuthRoute exact path="/about" component={About} />
+							<AuthRoute exact path="/course/lessons/:id" component={PreviewLessons} />
+							<AuthRoute exact path="/lesson/preview/:id" component={PreviewLesson} />
+
 							<AdminRoute exact path="/lesson/create" component={CreateLessonForm} />
+							{/* lesson/remove/:id */}
 							<AdminRoute exact path="/course/create" component={CreateCourseForm} />
 
 							<Route render={() => (
