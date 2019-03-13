@@ -13,17 +13,29 @@ const Navigation = (props) => {
                 props.isLoggedIn
                 ? <Fragment>
                     <div className="mr-auto">
-                            <ul className="navbar-nav mr-auto">
+                        <ul className="navbar-nav mr-auto">
                             <li className="nav-item active">
                                 <Link className="nav-link" to="/about">About us</Link>
                             </li>
+                            {
+                                props.isAdmin 
+                                ?   <Fragment>
+                                        <li className="nav-item active">
+                                            <Link className="nav-link" to="/course/create">Create a course</Link>
+                                        </li>
+                                        <li className="nav-item active">
+                                            <Link className="nav-link" to="/lesson/create">Create a lesson</Link>
+                                        </li>
+                                    </Fragment>
+                                : null
+                            }
                         </ul>
                     </div>
                     
                     <div className="ml-auto">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item active">
-                                <Link className="nav-link" to="/profile">Profile</Link>
+                                <Link className="nav-link" to="/user/profile">Profile</Link>
                             </li>
                             <li className="nav-item active">
                                 <Link className="nav-link" to="/logout">Logout</Link>
@@ -51,7 +63,7 @@ const NavigationWithCtx = (props) => {
         <UserConsumer>
             {
                 (user) => {
-                    return <Navigation {...props} isLoggedIn={!!user.isLoggedIn} />
+                    return <Navigation {...props} isLoggedIn={!!user.isLoggedIn} isAdmin={!!user.isAdmin} />
                 }
             }
         </UserConsumer>

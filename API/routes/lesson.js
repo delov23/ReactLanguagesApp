@@ -20,6 +20,6 @@ router.post('/create', isAuth, [
     body('test')
     .trim()
 ], lessonController.createLesson)
-router.delete('/delete/:id', isAuth, lessonController.deleteLesson);
+router.delete('/remove/:id', isAuth, lessonController.deleteLesson);
 
 module.exports = router;

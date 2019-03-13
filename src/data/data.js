@@ -53,6 +53,10 @@ function addCourseToUser(courseId, userId, token) {
     return requester(API_URL + '/user/addCourse', 'POST', { courseId, userId }, getAuthOptions(token));
 }
 
+function removeLesson(lessonId, token) {
+    return requester(API_URL + '/lesson/remove/' + lessonId, 'DELETE', {}, getAuthOptions(token));
+}
+
 export default {
     getAllCourses,
     loginUser,
@@ -62,4 +66,5 @@ export default {
     getLessonsByCourse,
     getLesson,
     addCourseToUser,
+    removeLesson
 }

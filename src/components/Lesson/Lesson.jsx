@@ -21,7 +21,9 @@ class PreviewLessons extends Component {
         let lessonId = this.props.match.params.id;
         api.getLesson(lessonId, sessionStorage.getItem('token'))
             .then((res) => {    
-                console.log(res);
+                if (res.message !== 'Fetched lesson successfully.') {
+                    throw new Error(res.message);
+                }
                 this.setState({
                     isLoading: false,
                     lesson: res.lesson
@@ -79,7 +81,6 @@ class PreviewLessons extends Component {
                          : this.state.stage === 3
                              ? <Test test={this.state.lesson.test} />
                              : this.handleDone()
-                                    
                 }
                 <button onClick={this.handleNext} className="btn btn-outline-success btn-lg float-right" style={{marginTop: '40px'}}>Next</button>
             </main>
