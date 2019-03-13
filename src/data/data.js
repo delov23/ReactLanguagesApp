@@ -57,6 +57,10 @@ function removeLesson(lessonId, token) {
     return requester(API_URL + '/lesson/remove/' + lessonId, 'DELETE', {}, getAuthOptions(token));
 }
 
+function getProfile(userId, token) {
+    return requester(API_URL + '/user/profile/' + userId, 'GET', {}, getAuthOptions(token));
+}
+
 export default {
     getAllCourses,
     loginUser,
@@ -66,5 +70,6 @@ export default {
     getLessonsByCourse,
     getLesson,
     addCourseToUser,
-    removeLesson
+    removeLesson,
+    getProfile
 }

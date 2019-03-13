@@ -2,10 +2,10 @@ const User = require('../models/User');
 
 module.exports = {
   profile: (req, res, next) => {
-    const { userId } = req;
+    const { id: userId } = req.params;
 
     User.findById(userId)
-      .populate('lessons')
+      .populate('courses')
       .then((user) => {
         if (!user) {
           const error = new Error('User not found');
