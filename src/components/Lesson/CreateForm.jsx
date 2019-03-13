@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import handleSuccess from '../../utils/handleSuccess';
 import api from '../../data/data';
 import handleError from '../../utils/handleError';
@@ -71,7 +72,8 @@ class Form extends Component {
         grammar2: "",
         grammar3: "",
         course: "",
-        courses: []
+        courses: [],
+        isLoading: true
     }
 
     handleChange = (e) => {
@@ -114,7 +116,9 @@ class Form extends Component {
         api.createLesson(body, sessionStorage.getItem('token'))
         .then((res) => {
             handleSuccess(res);
-            this.props.history.push('/');
+            this.setState({
+                done: true
+            });
         })
         .catch(console.error);
     }
@@ -122,16 +126,24 @@ class Form extends Component {
     componentDidMount = () => {
         api.getAllCourses(sessionStorage.getItem('token'))
             .then(res => {
-                this.setState({ courses: res.courses || [] });
+                this.setState({ courses: res.courses || [], isLoading: false });
             })
             .catch((e) => {
+                this.setState({
+                    isLoading: false
+                });
                 handleError(e);
-                this.props.history.push('/');
             });
     }
 
     render() {
-        let { words, questions } = this.state
+        if (this.state.isLoading) {
+            return <div className="loader"></div>
+        } else if (this.state.done) {
+            return <Redirect to="/" />
+        }
+
+        let { words, questions } = this.state;
         return (
             <main className="container">
                 <form onSubmit={this.handleSubmit} onChange={this.handleChange} >

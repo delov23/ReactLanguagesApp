@@ -47,7 +47,6 @@ class Home extends Component {
                         </span>
                     </a>
                 </div>
-                <script></script>
             </main>
         )
     }

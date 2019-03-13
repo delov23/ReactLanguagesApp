@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import api from '../../data/data';
-import handleError from '../../utils/handleError'
+import handleError from '../../utils/handleError';
 import { UserConsumer } from '../contexts/userContext';
+import handleSuccess from '../../utils/handleSuccess';
 
 class LoginForm extends Component {
     state = {
         username: '',
         password: '',
+        done: false
     }
 
     handleSubmit = (event) => {
@@ -15,11 +18,14 @@ class LoginForm extends Component {
         api.loginUser(username, password)
         .then((res) => {
             if (res.message !== 'User successfully logged in!') {
-                handleError(res.message);
+                throw new Error(res.message);
             } else {
                 sessionStorage.setItem('token', 'jwt ' + res.token);
                 sessionStorage.setItem('isAdmin', res.role === 'Admin');
                 sessionStorage.setItem('userId', res.userId);
+                this.setState({
+                    done: true
+                });
                 this.props.updateUser({
                     isLoggedIn: true,
                     token: 'jwt ' + res.token,
@@ -39,6 +45,11 @@ class LoginForm extends Component {
     }
 
     render () {
+        if (this.state.done) {
+            handleSuccess('Logged in!');
+            return <Redirect to="/" />
+        }
+
         return (
             <main className="container">
                 <img src="https://www.slurp-ramen.com/wp-content/uploads/2017/06/hello.png" alt="Hello" width="40%" style={{marginLeft: 'auto', marginRight: 'auto', marginBottom: '20px', display: 'block'}} />

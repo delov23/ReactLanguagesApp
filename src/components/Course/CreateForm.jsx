@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import api from '../../data/data';
 import handleSuccess from '../../utils/handleSuccess';
 import handleError from '../../utils/handleError';
@@ -7,13 +8,15 @@ class Form extends Component {
     state = {
         language: '',
         flag: '',
+        done: false,
+        unAuth: false
     }
 
     handleChange = (ev) => {
         let { name, value } = ev.target;
         this.setState({
             [name]: value
-        })   
+        });
     }
 
     handleSubmit = (e) => {
@@ -23,16 +26,28 @@ class Form extends Component {
         api.createCourse(language, flag, sessionStorage.getItem('token'))
             .then((res) => {
                 if (res.message !== 'Course added!') {
-                    handleError(res);
-                    return;
+                    throw new Error(res.message);
                 }
                 handleSuccess(res);
-                this.props.history.push('/')
+                this.setState({
+                    done: true
+                });
             })
-            .catch(handleError);
+            .catch((e) => {
+                this.setState({
+                    unAuth: true
+                });
+                handleError(e);
+            });
     }
 
     render() {
+        if (this.state.done) {
+            return <Redirect to="/" />
+        } else if (this.state.unAuth) {
+            return <Redirect to="/logout" />
+        }
+
         return (
             <main className="container">
                 <form onSubmit={this.handleSubmit}>

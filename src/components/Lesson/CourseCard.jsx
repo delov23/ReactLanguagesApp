@@ -12,7 +12,7 @@ const CourseCard = (props) => {
                      isAdmin
                      ?
                      <Link to={'/course/lessons/' + course._id} className="btn btn-sm btn-block btn-warning">
-                         <h5 className="text-center">Remove a lesson</h5>
+                         <h5 className="text-center">Manage lessons</h5>
                      </Link>
                      :
                      <Link to={'/course/lessons/' + course._id} className="btn btn-sm btn-block btn-success">

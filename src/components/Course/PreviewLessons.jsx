@@ -34,7 +34,7 @@ class PreviewLesson extends Component {
 
     render() {
         if (this.state.isLoading) {
-            return <h1>Loading...</h1>
+            return <div className="loader"></div>
         } else if (this.state.unAuth) {
             return <Redirect to="/logout" />
         }

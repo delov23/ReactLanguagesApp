@@ -8,7 +8,7 @@ class CoursesHome extends Component {
     state = {
         courses3: [],
         isLoading: true,
-        logoutUser: false
+        unAuth: false
     }
 
     componentDidMount() {
@@ -35,17 +35,16 @@ class CoursesHome extends Component {
                 console.error(err);
                 handleError('Please, log in to browse the courses.');
                 this.setState({
-                    courses3: [],
                     isLoading: false,
-                    logoutUser: true
+                    unAuth: true
                 });
             });
     }
     
     render () {
         if (this.state.isLoading) {
-            return <h1>Getting courses...</h1>
-        } else if (this.state.logoutUser) {
+            return <div className="loader"></div>
+        } else if (this.state.unAuth) {
             return <Redirect to="/logout" />
         }
         return (
