@@ -48,9 +48,9 @@ class PreviewLesson extends Component {
                     ?
                     this.state.lessons.map((lesson) => {
                         return (
-                            <div className="row row-margin">
+                            <div className="row row-margin" key={lesson._id}>
                                 <div className="col">
-                                    <Link to={'/lesson/preview/' + lesson._id} className="btn btn-block btn-lg btn-dark text-left">
+                                    <Link to={'/lesson/preview/' + lesson._id} style={{fontSize: '200%'}} className="btn btn-block btn-lg btn-dark text-left">
                                         <img className="img-thumbnail prepend" src={lesson.image} width="50px" alt="Thumbnail" />
                                         {lesson.title}
                                     </Link>
@@ -59,7 +59,7 @@ class PreviewLesson extends Component {
                                     this.props.isAdmin
                                     ? 
                                     <div className="col-md-2">
-                                        <Link to={'/lesson/remove/' + lesson._id} style={{height: '100%', 'font-size': '150%'}} className="btn btn-lg btn-block btn-danger">
+                                        <Link to={'/lesson/remove/' + lesson._id} style={{height: '100%', textAlign: 'center', fontSize: '200%'}} className="btn btn-lg btn-block btn-danger">
                                             Remove
                                         </Link>
                                     </div>

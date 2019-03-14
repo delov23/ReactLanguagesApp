@@ -89,7 +89,7 @@ class PreviewLessons extends Component {
 
         return (
             <main className="container">
-                <div className="stage" style={{'animation-duration': '0.5s'}}>
+                <div className="stage" style={{animationDuration: '0.5s'}}>
                 {
                     this.state.stage === 1
                     ? <Vocabulary words={this.state.lesson.words} courseName={this.state.lesson.course.language.split(' ')[0]} />

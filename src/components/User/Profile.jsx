@@ -55,7 +55,7 @@ class Profile extends Component {
                         {
                             user.courses.map((course) => {
                                 return (
-                                    <Link style={{textDecoration: 'none'}} to={'/course/lessons/' + course._id}>
+                                    <Link key={course._id} style={{textDecoration: 'none'}} to={'/course/lessons/' + course._id}>
                                        <img className="row-margin" src={course.flag} alt="" width="32%" />
                                        <span> </span>
                                     </Link>

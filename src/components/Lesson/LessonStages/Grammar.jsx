@@ -18,13 +18,13 @@ const Grammar = (props) => {
                 </div>
                 <div className="row row-margin">
                     <div className="col-md">
-                <textarea type="text" className="col-form-label-lg form-control btn-outline-primary" rows="3"
+                <textarea type="text" className="col-form-label-lg form-control btn-outline-primary" rows="5"
                         disabled="disabled" value={props.grammar[1]}></textarea>
                     </div>
                 </div>
                 <div className="row row-margin">
                     <div className="col-md">
-                <textarea type="text" className="col-form-label-lg form-control btn-outline-primary" rows="1"
+                <textarea type="text" className="col-form-label-lg form-control btn-outline-primary" rows="3"
                         disabled="disabled" value={'Example: ' + props.grammar[2]}></textarea>
                     </div>
                 </div>

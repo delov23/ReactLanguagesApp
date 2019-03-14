@@ -115,12 +115,15 @@ class Form extends Component {
         };
         api.createLesson(body, sessionStorage.getItem('token'))
         .then((res) => {
+            if (res.message !== 'Lesson created successfully!') {
+                throw new Error(res.message);
+            }
             handleSuccess(res);
             this.setState({
                 done: true
             });
         })
-        .catch(console.error);
+        .catch(handleError);
     }
 
     componentDidMount = () => {
@@ -161,16 +164,16 @@ class Form extends Component {
                     </div>
                     <div className="form-row">
                         <label htmlFor="g2" className="col-form-label-lg">Grammar Description</label>
-                        <input type="text" id="g2" className="form-control col-form-label-lg" name="grammar2" placeholder="We use the present ..." value={this.props.grammar2} />
+                        <textarea rows="5" type="text" id="g2" className="form-control col-form-label-lg" name="grammar2" placeholder="We use the present ..." value={this.props.grammar2} />
                     </div>
                     <div className="form-row">
                         <label htmlFor="g3" className="col-form-label-lg">Grammar Example</label>
-                        <input type="text" id="g3" className="form-control col-form-label-lg" name="grammar3" placeholder="I live in the ..." value={this.props.grammar3} />
+                        <textarea rows="2" type="text" id="g3" className="form-control col-form-label-lg" name="grammar3" placeholder="I live in the ..." value={this.props.grammar3} />
                     </div>
                     <div className="form-row">
                         <label htmlFor="course" className="col-form-label-lg">Course </label>
                         <select className="form-control form-control-lg" name="course" id="course" value={this.props.course}>
-                            <option value="" disabled defaultValue required>Pick a course...</option>
+                            <option value="" disabled>Pick a course...</option>
                             {
                                 this.state.courses.length > 0
                                     ? this.state.courses.map(course => {

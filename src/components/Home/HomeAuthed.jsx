@@ -53,11 +53,11 @@ class CoursesHome extends Component {
                 {
                     this.state.courses3.length > 0   
                     ?
-                    this.state.courses3.map((courses) =>(
-                        <div className="card-deck">
+                    this.state.courses3.map((courses, idx) =>(
+                        <div className="card-deck" key={idx}>
                         {
                             courses.map((course) => (
-                                <CourseCard isAdmin={this.props.isAdmin} course={course} />
+                                <CourseCard key={course._id} isAdmin={this.props.isAdmin} course={course} />
                             ))
                         }
                         </div>

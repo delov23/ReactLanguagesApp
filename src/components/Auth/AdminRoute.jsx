@@ -4,8 +4,6 @@ import { UserConsumer } from '../contexts/userContext';
 import handleError from '../../utils/handleError';
 
 const AdminRoute = ({ isLoggedIn, isAdmin, ...propsClone }) => {
-        console.log(isAdmin);
-        
         if (!isLoggedIn) {
             handleError('Please, log in!');
             return <Redirect to="/login" />
