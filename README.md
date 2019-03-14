@@ -19,7 +19,7 @@ As I mentioned earlier the framework used for the server logic is _express_. The
   * **Lesson** - create, delete and preview a lesson
     - `/lesson/findByCourse/:id`
     - `/lesson/:id`
-    - `/lesson/delete`
+    - `/lesson/remove`
   * Question - create a question for the test that is in a lesson
     - _Has a reference to the test array in the lesson schema and is used when creating a test in a lesson_
   * Word - create a word for the lesson
@@ -28,8 +28,21 @@ As I mentioned earlier the framework used for the server logic is _express_. The
 ##  3. Front-end
 ### Type `npm start` in the console of the langs-app folder to start it
 The used framework for the front-end is _React_. These are the highlights from it:
-  * Home page:
+  * Home Page:
     - Anonymous: A greeting message that switches languages
     - User/Admin: A preview of all the courses available
   * Create Lesson Form:
     - Dynamic addition of words and questions
+  * Preview Lesson:
+    - A lesson has three stages and the `/lesson/preview/:id` is the route they can be found in. 
+    - First, it shows th vocabulary secion, then the grammar one. 
+    - Finally, when the stage property of this.state becomes the number three, a test (quiz) is displayed.
+    - The test is the only stage of a lesson which is a class component, because it has bonus functionality - to show when an answer is correct or wrong.
+  * User Profile:
+    - The user profile shows the basic information about a registered person and their courses. A course is added to one's profile when they have completed at least one lesson of it.
+  * Preview Lessons in a Course:
+    - Dynamic page that shows all the lessons in a course. If the user is admin, they can manage the lessons (remove them).
+  * Notifilcations:
+    - I have used toastify as a notification helper. 
+  * Data layer:
+    - A requester makes the requests to the api and it is used in the `src/data/data.js` file in order to simplify the work of the components.
