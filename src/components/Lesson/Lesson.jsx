@@ -17,6 +17,20 @@ class PreviewLessons extends Component {
         completed: false
     }
 
+    animateCss = (element, animationName, callback) => {
+        const node = document.querySelector(element);
+        node.classList.add('animated', animationName);
+
+        function handleAnimationEnd() {
+            node.classList.remove('animated', animationName);
+            node.removeEventListener('animationend', handleAnimationEnd);
+
+            if (typeof callback === 'function') callback();
+        }
+
+        node.addEventListener('animationend', handleAnimationEnd);
+    }
+
     componentDidMount () {
         let lessonId = this.props.match.params.id;
         api.getLesson(lessonId, sessionStorage.getItem('token'))
@@ -39,11 +53,13 @@ class PreviewLessons extends Component {
     }
 
     handleNext = () => {
+        this.animateCss('div.stage', 'fadeIn');        
+
         this.setState((prevState) => {
             return {
                 stage: prevState.stage + 1
             }
-        })
+        });
     }
 
     handleDone = () => {
@@ -73,6 +89,7 @@ class PreviewLessons extends Component {
 
         return (
             <main className="container">
+                <div className="stage" style={{'animation-duration': '0.5s'}}>
                 {
                     this.state.stage === 1
                     ? <Vocabulary words={this.state.lesson.words} courseName={this.state.lesson.course.language.split(' ')[0]} />
@@ -82,6 +99,7 @@ class PreviewLessons extends Component {
                              ? <Test test={this.state.lesson.test} />
                              : this.handleDone()
                 }
+                </div>
                 <button onClick={this.handleNext} className="btn btn-outline-success btn-lg float-right" style={{marginTop: '40px'}}>Next</button>
             </main>
         )

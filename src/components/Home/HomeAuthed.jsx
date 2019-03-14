@@ -51,6 +51,8 @@ class CoursesHome extends Component {
             <main className="container">
                 <h1 className="text-center">Browse the available courses: </h1>
                 {
+                    this.state.courses3.length > 0   
+                    ?
                     this.state.courses3.map((courses) =>(
                         <div className="card-deck">
                         {
@@ -61,6 +63,7 @@ class CoursesHome extends Component {
                         </div>
                         )
                     )
+                    : <h2 className="text-center">No courses added yet.</h2> 
                 }
             </main>
         )

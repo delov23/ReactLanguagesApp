@@ -44,6 +44,8 @@ class PreviewLesson extends Component {
                 <h1 className="text-dark text-center">Topics</h1>
                 <br />
                 {
+                    this.state.lessons.length > 0
+                    ?
                     this.state.lessons.map((lesson) => {
                         return (
                             <div className="row row-margin">
@@ -66,6 +68,7 @@ class PreviewLesson extends Component {
                             </div>
                         )
                     })
+                    : <h2 className="text-center">No topics to this course yet.</h2>
                 }
             </main>
         )
