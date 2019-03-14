@@ -22,9 +22,6 @@ const userSchema = new Schema({
   courses: [
     { type: Schema.Types.ObjectId, ref: 'Course' }
   ],
-  results: [
-    { type: Schema.Types.ObjectId, ref: 'Result' }
-  ],
   role: {
     type: String, default: 'User'
   }
@@ -38,4 +35,28 @@ userSchema.method({
   }
 })
 
-module.exports = mongoose.model('User', userSchema);
+let User =  mongoose.model('User', userSchema);
+
+User.seedAdmin = async () => {
+  try {
+      let users = await User.find({});
+      if (users.length > 0) {
+          return;
+      }
+      const salt = encryption.generateSalt();
+      const hashedPass = encryption.generateHashedPassword(salt, '123456');
+      return User.create({
+          username: 'delov23',
+          salt,
+          hashedPass,
+          role: 'Admin',
+          courses: [],
+          firstName: 'Admin',
+          lastName: 'Admin'
+      });
+  } catch (e) {
+      console.error(e);
+  }
+};
+
+module.exports = User;

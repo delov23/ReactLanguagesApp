@@ -1,0 +1,3 @@
+{"_id":{"$oid":"5c7175cf5192bc174069f2e8"},"lessons":[{"$oid":"5c76a245978a842efc4a949a"}],"language":"Dutch A1","flag":"https://www.iamexpat.nl/sites/default/files/styles/ogimage_thumb/public/flag-netherlands.jpg?itok=YgQIkYTf","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c877b01bb67182bac83fd00"},"lessons":[],"language":"Bulgarian A1","flag":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Bulgaria.svg/2000px-Flag_of_Bulgaria.svg.png","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a118476d892124cfea78c"},"lessons":[],"language":"German A1","flag":"https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1280px-Flag_of_Germany.svg.png","__v":{"$numberInt":"0"}}

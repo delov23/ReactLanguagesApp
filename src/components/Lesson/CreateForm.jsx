@@ -129,7 +129,7 @@ class Form extends Component {
     componentDidMount = () => {
         api.getAllCourses(sessionStorage.getItem('token'))
             .then(res => {
-                this.setState({ courses: res.courses || [], isLoading: false });
+                this.setState({ courses: res.courses || [], isLoading: false, course: res.courses[0] });
             })
             .catch((e) => {
                 this.setState({
@@ -173,7 +173,6 @@ class Form extends Component {
                     <div className="form-row">
                         <label htmlFor="course" className="col-form-label-lg">Course </label>
                         <select className="form-control form-control-lg" name="course" id="course" value={this.props.course}>
-                            <option value="" disabled>Pick a course...</option>
                             {
                                 this.state.courses.length > 0
                                     ? this.state.courses.map(course => {

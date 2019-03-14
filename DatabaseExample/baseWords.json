@@ -1,0 +1,32 @@
+{"_id":{"$oid":"5c76a498ed99a2349895bc5d"},"word":"Hello","translation":"Hallo","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c76a498ed99a2349895bc5e"},"word":"Kaas","translation":"Cheese","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a0f4976d892124cfea781"},"word":"азбука (ж. р.)","translation":"alphabet (f.)","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a0f4976d892124cfea782"},"word":"род (м. р.)","translation":"gender (m.)","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a0f4976d892124cfea783"},"word":"множествено число (ср. р.)","translation":"plural (n.)","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a0f4976d892124cfea784"},"word":"опашка (ж. р.)","translation":"queue, tail (f.)","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a0f4976d892124cfea785"},"word":"България (ж. р.)","translation":"Bulgaria (f.)","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a0f4976d892124cfea786"},"word":"език (м. р.)","translation":"language, tongue (m.)","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a13d776d892124cfea78d"},"word":"asd","translation":"asd","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a2e0176d892124cfea790"},"word":"мъж (м)","translation":"man","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a2e0176d892124cfea791"},"word":"стол (м)","translation":"chair","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a2e0176d892124cfea792"},"word":"език (м)","translation":"language, tongue","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a2e0176d892124cfea793"},"word":"жена (ж. р.)","translation":"woman","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aa32576d892124cfea797"},"word":"жена (ж)","translation":"woman","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aa32576d892124cfea798"},"word":"маса (ж)","translation":"table","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aa32576d892124cfea799"},"word":"лампа (ж)","translation":"lamp","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aa32576d892124cfea79a"},"word":"дъщеря (ж)","translation":"daughter","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aa32576d892124cfea79b"},"word":"красив (м)","translation":"beautiful","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aa32576d892124cfea79c"},"word":"красива (ж)","translation":"beautiful","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aa72176d892124cfea7a1"},"word":"куче (ср) - кучета (мн)","translation":"dog - dogs","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aa72176d892124cfea7a2"},"word":"легло (ср) [leg`wo] - легла (мн) [leg`wa]","translation":"bed - beds","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aa72176d892124cfea7a3"},"word":"жена (ж)","translation":"woman (in this case the noun is not written because it is made with -и)","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aa72176d892124cfea7a4"},"word":"кола (ж)","translation":"car","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aac4176d892124cfea7aa"},"word":"буква (ж)","translation":"letter","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aac4176d892124cfea7ab"},"word":"маймуна (ж)","translation":"monkey","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aac4176d892124cfea7ac"},"word":"нар (м)","translation":"pomegranate","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8ab01c76d892124cfea7af"},"word":"de vrouw,-en","translation":"woman","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8ab01c76d892124cfea7b0"},"word":"het meisje,-s","translation":"girl","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8ab06176d892124cfea7b3"},"word":"de vrouw,-en","translation":"woman","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8ab06176d892124cfea7b4"},"word":"het meisje,-s","translation":"girl","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8ab13376d892124cfea7b7"},"word":"ads","translation":"das","__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8ab14276d892124cfea7ba"},"word":"ads","translation":"das","__v":{"$numberInt":"0"}}

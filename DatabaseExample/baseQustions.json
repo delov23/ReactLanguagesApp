@@ -1,0 +1,21 @@
+{"_id":{"$oid":"5c76a498ed99a2349895bc5f"},"question":"How do you say Hello in Dutch?","a1":"Meh","a2":"Hallo!","a3":"Riva!","answer":{"$numberInt":"2"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c76a498ed99a2349895bc60"},"question":"How do you say Cheese in Dutch?","a1":"Meh","a2":"Hallo!","a3":"Kaas","answer":{"$numberInt":"3"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a0f4976d892124cfea787"},"question":"Do you remember how many letters there are in the Bulgarian alphabet?","a1":"30","a2":"29","a3":"32","answer":{"$numberInt":"1"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a0f4976d892124cfea788"},"question":"What is the gender of the word език (м. р.)","a1":"m.","a2":"f.","a3":"n.","answer":{"$numberInt":"1"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a0f4976d892124cfea789"},"question":"How do you say queue in Bulgarian?","a1":"ку","a2":"език","a3":"опашка","answer":{"$numberInt":"3"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a0f4976d892124cfea78a"},"question":"Translate: Bulgaria","a1":"България (м. р.)","a2":"България (ж. р.)","a3":"Българският (ж. р.)","answer":{"$numberInt":"2"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a13d776d892124cfea78e"},"question":"asd","a1":"asd","a2":"asd","a3":"asd","answer":{"$numberInt":"2"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a2e0176d892124cfea794"},"question":"Translate: chair","a1":"език","a2":"жена","a3":"стол","answer":{"$numberInt":"3"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8a2e0176d892124cfea795"},"question":"Thranslate: a man","a1":"един мъж","a2":"една мъж","a3":"един стол","answer":{"$numberInt":"1"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aa32576d892124cfea79d"},"question":"Translate: lamp","a1":"лампа","a2":"ламп","a3":"красив","answer":{"$numberInt":"1"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aa32576d892124cfea79e"},"question":"What is the gender of the word table (маса) in Bulgarian?","a1":"(м)","a2":"(ж)","a3":"(ср)","answer":{"$numberInt":"2"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aa32576d892124cfea79f"},"question":"How does one say 'a beautiful woman'?","a1":"красива жена","a2":"красив жена","a3":"красиво жена","answer":{"$numberInt":"1"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aa72176d892124cfea7a5"},"question":"Translate: car","a1":"кола (ж)","a2":"кола (м)","a3":"стол (ср)","answer":{"$numberInt":"1"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aa72176d892124cfea7a6"},"question":"How to express 'a beutiful dog' in Bulgarian?","a1":"красиво куче","a2":"красива куче","a3":"красиви кучета","answer":{"$numberInt":"1"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aa72176d892124cfea7a7"},"question":"What is the gender of ЕДНО","a1":"(м)","a2":"(ж)","a3":"(ср)","answer":{"$numberInt":"3"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aa72176d892124cfea7a8"},"question":"What is the plural of 'легло'?","a1":"легли","a2":"легла","a3":"леглота","answer":{"$numberInt":"2"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8aac4176d892124cfea7ad"},"question":"What are the correct pronounciations in this order: ч, е, ж, йо, ьо, к","a1":"tʃ, e, ʒ, jo, jo, k","a2":"ch, e, juj, you, uoy, ka","a3":"tʃ, e, ʒ, o, o, k","answer":{"$numberInt":"1"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8ab01c76d892124cfea7b1"},"question":"How do you say woman in NL?","a1":"de vrouw,-en","a2":"het frau,-en","a3":"de frau,-en","answer":{"$numberInt":"1"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8ab06176d892124cfea7b5"},"question":"How do you say woman in NL?","a1":"de vrouw,-en","a2":"het frau,-en","a3":"de frau,-en","answer":{"$numberInt":"1"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8ab13376d892124cfea7b8"},"question":"asd","a1":"ads","a2":"asd","a3":"das","answer":{"$numberInt":"1"},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c8ab14276d892124cfea7bb"},"question":"asd","a1":"ads","a2":"asd","a3":"das","answer":{"$numberInt":"1"},"__v":{"$numberInt":"0"}}

@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const User = require('../models/User');
+
 mongoose.Promise = global.Promise;
 module.exports = () => {
     mongoose.connect('mongodb://localhost:27017/languageApp', {
@@ -10,7 +12,11 @@ module.exports = () => {
             console.log(err);
         } 
 
-        console.log('Database ready');
+        User.seedAdmin().then(() => {
+            console.log('Database ready');
+        }).catch(err => {
+            console.error(err);
+        })
     });
 
     db.on('error', reason => {
