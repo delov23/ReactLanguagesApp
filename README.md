@@ -2,6 +2,9 @@
 ### An app that can teach you languages. The only limit is you.
 ![Langs](https://mycroft.ai/wp-content/uploads/2018/05/languages-edited.png)
 
+##  0. Initial Setup
+Lessons and courses are hard to make. For this reason there is a folder DatabaseExample in which you can find the documents I made in order for you to have a look at the app without having to deal with creating entities. The admin username is 'delov23' and the password is '123456'. For a simple user you can go with u: 'user1' and p: 'user1'.
+
 ##  1. Overview
 Lingo is an application that aims to teach one a new language in a fun and creative way. Basically, the project consists of two parts - a `back-end` one and a `front-end` one. The `back-end` fragment is created with the framework _express_ whereas in the `front-end` piece I have used _React_. The functionality is divided into two roles - `Admin` and `User`. The admin is the one who creates courses and lessons and removes them. The user can take advantage of all the available lessons. There is also an `Anonymous` role in which one can only see the home page, register and login.
   
