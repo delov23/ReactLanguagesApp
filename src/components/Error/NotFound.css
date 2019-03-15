@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Poiret+One');
 
-h1, h2 {
+h1.notFound, h2.notFound {
     font-family: 'Poiret One', cursive;
 }
 
-h1 {
+h1.notFound {
     font-size: 150pt;
 }
 
-h2 {
+h2.notFound {
     font-size: 50pt;
 }
