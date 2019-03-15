@@ -45,7 +45,7 @@ The used framework for the front-end is _React_. These are the highlights from i
     - The user profile shows the basic information about a registered person and their courses. A course is added to one's profile when they have completed at least one lesson of it.
   * Preview Lessons in a Course:
     - Dynamic page that shows all the lessons in a course. If the user is admin, they can manage the lessons (remove them).
-  * Notifilcations:
+  * Notifications:
     - I have used toastify as a notification helper. 
   * Data layer:
     - A requester makes the requests to the api and it is used in the `src/data/data.js` file in order to simplify the work of the components.
