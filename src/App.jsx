@@ -21,6 +21,7 @@ import PreviewLessons from './components/Course/PreviewLessons';
 import PreviewLesson from './components/Lesson/Lesson';
 import RemoveForm from './components/Lesson/RemoveForm';
 import Profile from './components/User/Profile';
+import NotFound from './components/Error/NotFound';
 
 class App extends Component {
 	constructor(props) {
@@ -83,9 +84,7 @@ class App extends Component {
 							<AdminRoute exact path="/lesson/remove/:id" component={RemoveForm} />
 							<AdminRoute exact path="/course/create" component={CreateCourseForm} />
 
-							<Route render={() => (
-								<h1>Not Found</h1>
-							)} />
+							<Route component={NotFound} />
 						</Switch>
 					</UserProvider>
 				</Fragment>
