@@ -4,6 +4,8 @@ const lessonRoutes = require('./routes/lesson');
 const courseRoutes = require('./routes/course');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
+const applicationRoutes = require('./routes/application');
+
 require('./database/database')();
 const port = 9999;
 const app = express();
@@ -20,6 +22,7 @@ app.use('/course', courseRoutes);
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
 app.use('/lesson', lessonRoutes);
+app.use('/application', applicationRoutes);
 
 // General error handling
 app.use((error, req, res, next) => {
